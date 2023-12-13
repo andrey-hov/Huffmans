@@ -1,5 +1,6 @@
 import heapq
 from collections import defaultdict
+import os
 
 def build_huffman_tree(symbols_freq):
     heap = [[weight, [symbol, ""]] for symbol, weight in symbols_freq.items()]
@@ -26,6 +27,8 @@ def generate_huffman_codes(tree):
     return huff_codes
 
 def save_codes(file_name, huff_codes):
+    os.mkdir(file_name[:-4] + '_encode')
+    os.chdir(file_name[:-4] + '_encode')
     name = file_name[:-4] + '_codes' + '.txt'
     my_file = open(name, "w+")
     for word, code in huff_codes.items():
@@ -42,6 +45,7 @@ def compress_data(text, huff_codes, file_name):
     name = file_name[:-4] + '_encode' + '.txt'
     my_file = open(name, "w+")
     my_file.write(compressed_data)
+    os.chdir("..")
     return compressed_data
 
 def start(file_name):
