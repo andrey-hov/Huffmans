@@ -24,5 +24,6 @@ def decode_folder(directory):
     
     os.chdir(directory)
     for folder in folders:
+        os.chdir(folder)
         Decoding.decompress_data(folder + '.txt')
         os.chdir('..')

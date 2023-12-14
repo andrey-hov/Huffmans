@@ -2,7 +2,6 @@ import os
 
 
 def decompress_data(file_compressed_data):
-    os.chdir(file_compressed_data[:-4])
     with open(file_compressed_data) as file:
         compressed_data = file.read()
     huff_codes_reversed, code_n = get_huffmans_code(file_compressed_data[:-10] + 'codes.txt')

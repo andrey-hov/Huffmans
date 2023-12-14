@@ -2,6 +2,7 @@ import Encoding
 import Decoding
 import argparse
 import Code_folders
+import os
 
 
 def decoding(compressed_data):
@@ -24,7 +25,9 @@ args = parser.parse_args()
 
 if args.code == 'decode':
     if args.file_path[-4:] == '.txt':
+        os.chdir(args.file_path[:-4])
         decoding(args.file_path)
+        os.chdir('..')
     else:
         decoding_folder(args.file_path)
 elif args.code == 'encode':

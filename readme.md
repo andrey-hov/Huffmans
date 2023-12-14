@@ -11,7 +11,7 @@
 # Для кодирования файла:
 - Ввести в консоли `python main.py encode file_path`, 
 где `file_path` - путь до кодируемого файла (примеры файлов: `text1.txt`, `text2.txt`)
-Например: `python main.py encode test.txt file`
+Например: `python main.py encode test.txt`
 
 # Для кодирования папки:
 - Ввести в консоли `python main.py encode folder_name`, 
