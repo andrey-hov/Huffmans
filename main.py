@@ -19,8 +19,8 @@ def encoding_folder(folder_name):
 
 
 parser = argparse.ArgumentParser(description='Huffman')
-parser.add_argument('code', type=str, help='Encode or decode')
-parser.add_argument('file_path', type=str, help='The path to the file')
+parser.add_argument('--code', type=str, default="", help='Encode or decode')
+parser.add_argument('--file_path', type=str, default="", help='Название файла или папки')
 args = parser.parse_args()
 
 if args.code == 'decode':

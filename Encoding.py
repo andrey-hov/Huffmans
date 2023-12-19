@@ -27,15 +27,18 @@ def generate_huffman_codes(tree):
     return huff_codes
 
 def save_codes(file_name, huff_codes):
-    os.mkdir(file_name[:-4] + '_encode')
-    os.chdir(file_name[:-4] + '_encode')
-    name = file_name[:-4] + '_codes' + '.txt'
-    my_file = open(name, "w+")
-    for word, code in huff_codes.items():
-        my_file.write(word + ' ' + code + '\n')
+    if not os.path.exists(file_name[:-4] + '_encode'):
+        os.mkdir(file_name[:-4] + '_encode')
+        os.chdir(file_name[:-4] + '_encode')
+        name = file_name[:-4] + '_codes' + '.txt'
+        my_file = open(name, "w+")
+        for word, code in huff_codes.items():
+            my_file.write(word + ' ' + code + '\n')
+        os.chdir("..")
 
 
 def compress_data(text, huff_codes, file_name):
+    os.chdir(file_name[:-4] + '_encode')
     compressed_data = ""
     for char in text:
         if char == '\n':
