@@ -40,10 +40,14 @@ class InterpreterTest(unittest.TestCase):
         self.assertEqual(open("test.txt").read(), "Hello")
 
     def test_encode_folder(self):
+        Code_folders.encode_folder("test_folder")
+        os.chdir('..')
         self.assertEqual(os.path.exists('test_folder/text1_encode'), True)
         self.assertEqual(os.path.exists('test_folder/text2_encode'), True)
 
     def test_decode_folder(self):
+        Code_folders.encode_folder("test_folder")
+        os.chdir('..')
         self.assertEqual(os.path.exists('test_folder/text1_encode/text1_decode.txt'), True)
         self.assertEqual(os.path.exists('test_folder/text2_encode/text2_decode.txt'), True)
 
